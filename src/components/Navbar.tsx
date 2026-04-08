@@ -23,7 +23,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <a href="#inicio">
-          <img src="/src/images/logosemfundo.png" alt="VA Arquitetura" className="h-12 w-auto" />
+          <img src="/images/logosemfundo.png" alt="VA Arquitetura" className="h-12 w-auto" />
         </a>
 
         {/* Links desktop */}

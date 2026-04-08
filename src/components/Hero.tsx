@@ -61,7 +61,7 @@ const Hero = () => {
       >
        <div className="hidden md:block overflow-hidden">
     <img
-      src="/src/images/ambientesala5.jpeg"
+      src="/images/ambientesala5.jpeg"
       alt="Projeto VA Arquitetura"
       className="w-full h-full object-cover"
     />
