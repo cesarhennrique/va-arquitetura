@@ -1,8 +1,12 @@
+import { motion } from 'framer-motion'
+import useScrollAnimation from '../hooks/useScrollAnimation'
+
 const About = () => {
+  const { ref, isVisible } = useScrollAnimation()
+
   return (
     <section id="sobre" className="grid grid-cols-2 border-t border-va-gold/20">
 
-      {/* Foto da equipe */}
       <div className="overflow-hidden h-[600px]">
         <img
           src="/src/assets/images/ceos2.jpeg"
@@ -11,8 +15,13 @@ const About = () => {
         />
       </div>
 
-      {/* Conteúdo */}
-      <div className="flex flex-col justify-center gap-8 px-20 py-24 bg-va-warm">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, x: 40 }}
+        animate={isVisible ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="flex flex-col justify-center gap-8 px-20 py-24 bg-va-warm"
+      >
         <span className="font-sans text-[10px] font-light tracking-[3px] text-va-green uppercase">
           Sobre o escritório
         </span>
@@ -26,8 +35,6 @@ const About = () => {
         <p className="font-sans text-[13px] font-light leading-[1.9] text-va-taupe">
           Com foco em interiores residenciais de alto padrão, unimos rigor técnico à sensibilidade no uso de materiais, luz e proporção. Cada projeto é único, desenvolvido com atenção ao menor detalhe.
         </p>
-
-        {/* Stats */}
         <div className="grid grid-cols-3 gap-6 mt-4 pt-8 border-t border-va-gold/20">
           {[
             { n: '80+', label: 'Projetos entregues' },
@@ -40,7 +47,7 @@ const About = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
     </section>
   )

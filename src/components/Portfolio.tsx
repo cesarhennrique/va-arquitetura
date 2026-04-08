@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import useScrollAnimation from '../hooks/useScrollAnimation'
+
 const projects = [
   {
     id: "01",
@@ -38,46 +41,30 @@ const projects = [
 ];
 
 const Portfolio = () => {
+  const { ref, isVisible } = useScrollAnimation()
+
   return (
     <section id="portfolio" className="bg-va-cream">
-      {/* Header da seção */}
-      <div
-        className="flex items-center gap-6 px-20 py-8 border-t border-b"
-        style={{ borderColor: "rgba(201,169,110,0.2)" }}
-      >
-        <span
-          style={{
-            fontSize: "10px",
-            letterSpacing: "3px",
-            color: "#9a9088",
-            textTransform: "uppercase",
-          }}
-        >
+
+      <div className="flex items-center gap-6 px-20 py-8 border-t border-b border-va-gold/20">
+        <span className="font-sans text-[10px] font-light tracking-[3px] text-va-taupe uppercase">
           Projetos selecionados
         </span>
-        <div
-          style={{
-            flex: 1,
-            height: "1px",
-            background: "rgba(201,169,110,0.2)",
-          }}
-        />
-        <span
-          style={{ fontSize: "10px", letterSpacing: "1px", color: "#c9a96e" }}
-        >
+        <div className="flex-1 h-px bg-va-gold/20" />
+        <span className="font-sans text-[10px] tracking-[1px] text-va-gold">
           06 projetos
         </span>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-3">
-        {projects.map((project) => (
-          <div
+      <div ref={ref} className="grid grid-cols-3">
+        {projects.map((project, index) => (
+          <motion.div
             key={project.id}
-            className="group relative overflow-hidden cursor-pointer border-r border-b"
-            style={{ borderColor: "rgba(201,169,110,0.15)" }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="group relative overflow-hidden cursor-pointer border-r border-b border-va-gold/15"
           >
-            {/* Imagem */}
             <div className="overflow-hidden h-72">
               <img
                 src={project.img}
@@ -85,65 +72,25 @@ const Portfolio = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </div>
-
-            {/* Overlay no hover */}
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end pb-24 pl-6"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(44,40,32,0.6) 0%, transparent 60%)",
-              }}
+              style={{background: 'linear-gradient(to top, rgba(44,40,32,0.6) 0%, transparent 60%)'}}
             >
-              <span
-                style={{
-                  fontSize: "10px",
-                  letterSpacing: "2px",
-                  color: "#f5f1eb",
-                  textTransform: "uppercase",
-                }}
-              >
+              <span className="font-sans text-[10px] tracking-[2px] text-va-cream uppercase">
                 ver projeto →
               </span>
             </div>
-
-            {/* Info */}
-            <div className="px-6 py-5" style={{ background: "#f5f1eb" }}>
-              <p
-                style={{
-                  fontSize: "10px",
-                  letterSpacing: "2px",
-                  color: "#c9a96e",
-                  marginBottom: "6px",
-                }}
-              >
-                {project.id}
-              </p>
-              <p
-                style={{
-                  fontFamily: "Cormorant Garamond, serif",
-                  fontSize: "18px",
-                  fontWeight: 400,
-                  color: "#2c2820",
-                  marginBottom: "3px",
-                }}
-              >
-                {project.name}
-              </p>
-              <p
-                style={{
-                  fontSize: "11px",
-                  color: "#9a9088",
-                  letterSpacing: "1px",
-                }}
-              >
-                {project.category}
-              </p>
+            <div className="px-6 py-5 border-t border-va-gold/15 bg-va-cream">
+              <p className="font-sans text-[10px] tracking-[2px] text-va-gold mb-2">{project.id}</p>
+              <p className="font-serif text-[18px] font-light text-va-dark mb-1">{project.name}</p>
+              <p className="font-sans text-[11px] tracking-[1px] text-va-taupe">{project.category}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
+
     </section>
-  );
-};
+  )
+}
 
 export default Portfolio;
