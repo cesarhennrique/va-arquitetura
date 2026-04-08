@@ -13,9 +13,9 @@ const Footer = () => {
         </span>
 
         <div className="flex gap-6 md:gap-8">
-          <a href="#" className="font-sans text-[10px] font-light tracking-[2px] text-va-taupe uppercase hover:text-va-green transition-colors duration-300">Instagram</a>
-          <a href="#" className="font-sans text-[10px] font-light tracking-[2px] text-va-taupe uppercase hover:text-va-green transition-colors duration-300">Behance</a>
-          <a href="#" className="font-sans text-[10px] font-light tracking-[2px] text-va-taupe uppercase hover:text-va-green transition-colors duration-300">WhatsApp</a>
+          <a href="https://www.instagram.com/va.arquitetura/" className="font-sans text-[10px] font-light tracking-[2px] text-va-taupe uppercase hover:text-va-green transition-colors duration-300">Instagram</a>
+       
+          <a href="https://wa.me/5581994314649" className="font-sans text-[10px] font-light tracking-[2px] text-va-taupe uppercase hover:text-va-green transition-colors duration-300">WhatsApp</a>
         </div>
 
       </div>
