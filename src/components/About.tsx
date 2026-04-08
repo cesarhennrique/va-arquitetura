@@ -11,7 +11,7 @@ const About = () => {
     >
       <div className="overflow-hidden h-[400px] md:h-[600px]">
         <img
-          src="/src/assets/images/ceos2.jpeg"
+          src="/src/images/ceos2.jpeg"
           alt="Equipe VA Arquitetura"
           className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
         />
