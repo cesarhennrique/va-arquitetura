@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section id="inicio" className="relative h-screen grid grid-cols-2">
+    <section id="inicio" className="relative h-screen grid grid-cols-2 pt-20">
       {/* Lado esquerdo — texto */}
       <div className="flex flex-col justify-center pt-24 pb-20 px-12 gap-6 bg-va-cream">
         <span className="font-sans text-[10px] font-light tracking-[4px] text-va-green uppercase">

@@ -78,7 +78,7 @@ const Portfolio = () => {
             style={{ borderColor: "rgba(201,169,110,0.15)" }}
           >
             {/* Imagem */}
-            <div className="overflow-hidden h-64">
+            <div className="overflow-hidden h-72">
               <img
                 src={project.img}
                 alt={project.name}
