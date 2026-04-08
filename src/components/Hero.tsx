@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative h-screen grid grid-cols-2 pt-20">
+   <section id="inicio" className="relative h-screen grid grid-cols-1 md:grid-cols-2 pt-20">
 
-      <div className="flex flex-col justify-center px-20 gap-6 bg-va-cream">
+      <div className="flex flex-col justify-center px-8 md:px-20 gap-6 bg-va-cream">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,11 +59,13 @@ const Hero = () => {
         transition={{ duration: 1.2, delay: 0.2 }}
         className="overflow-hidden"
       >
-        <img
-          src="/src/assets/images/ambientesala4.jpeg"
-          alt="Projeto VA Arquitetura"
-          className="w-full h-full object-cover"
-        />
+       <div className="hidden md:block overflow-hidden">
+    <img
+      src="/src/assets/images/ambientesala5.jpeg"
+      alt="Projeto VA Arquitetura"
+      className="w-full h-full object-cover"
+    />
+  </div>
       </motion.div>
 
     </section>
